@@ -20,13 +20,16 @@ START_BUTTONS = InlineKeyboardMarkup(
 
 HTART_BUTTONS = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton(text="⚙️ Help", callback_data="help"),
         InlineKeyboardButton(text="🤖 About", callback_data="about"),
-        ],[
         InlineKeyboardButton(text="Close 🔐", callback_data="close")
         ]]
     )
 
+ATART_BUTTONS = InlineKeyboardMarkup(
+        [[
+        InlineKeyboardButton(text="Report Bugs 🐞", url="t.me/VKP_BOTS"),
+        ]]
+    )
 
 @Client.on_message(Filters.command(["start"]))
 async def start(c, m):
@@ -56,6 +59,7 @@ async def about(c, m):
                          text=Translation.ABOUT,
                          disable_web_page_preview=True,
                          reply_to_message_id=m.message_id,
+                         replay_markup=ATART_BUTTONS,
                          parse_mode="markdown")
 
 @Client.on_message(Filters.command(["convtovideo"]))
