@@ -3,8 +3,7 @@ import pyrogram
 from pyrogram import Client
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.errors import UserNotParticipant
-
-from translation import translation
+from translation import Translation
 
 helpbutton = [[
         InlineKeyboardButton(f'Channel', url="https://t.me/VKPROJECTS"),
@@ -26,7 +25,7 @@ async def cb_handler(bot, update):
         await update.answer()
         keyboard = InlineKeyboardMarkup(helpbutton)
         await update.message.edit_text(
-            text=translation.HELP,
+            text=Translation.HELP,
             reply_markup=keyboard,
             disable_web_page_preview=True
         )
@@ -36,7 +35,7 @@ async def cb_handler(bot, update):
         await update.answer()
         keyboard = InlineKeyboardMarkup(aboutbutton)
         await update.message.edit_text(
-            text=translation.ABOUT,
+            text=Translation.ABOUT,
             reply_markup=keyboard,
             disable_web_page_preview=True
         )
