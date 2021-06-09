@@ -8,6 +8,7 @@ class Config(object):
     AUTH_USERS = set(int(x) for x in os.environ.get("AUTH_USERS", "").split())
     BANNED_USER = set(int(x) for x in os.environ.get("BANNED_USERS", "").split())
     DOWNLOAD_LOCATION = "./DOWNLOADS"
+    FORCE_SUB = "VKPROJECTS"
     HTTP_PROXY = os.environ.get("HTTP_PROXY", "")
     OUO_IO_API_KEY = ""
     MAX_MESSAGE_LENGTH = 4096
