@@ -6,7 +6,7 @@ from pyrogram import Client as pyrogram, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ForceReply
 from pyrogram.errors import UserNotParticipant
 
-from script import script
+from translation import translation
 
 helpbutton = [[
         InlineKeyboardButton(f'Channel', url="https://t.me/VKPROJECTS"),
@@ -23,12 +23,8 @@ aboutbutton = [[
 
 @pyrogram.on_callback_query()
 async def cb_handler(bot, update):
-        
-    if "rename_button" in update.data:
-        await update.message.delete()
-        await force_name(bot, update.message)
 
-    elif update.data == "help":
+    if update.data == "help":
         await update.answer()
         keyboard = InlineKeyboardMarkup(helpbutton)
         await update.message.edit_text(
