@@ -43,7 +43,7 @@ async def about(c, m):
                          reply_to_message_id=m.message_id,
                          parse_mode="markdown")
 
-@Client.on_message(Filters.command(["converttovideo"]))
+@Client.on_message(Filters.command(["convtovideo"]))
 async def video(c, m):
 
   if Config.BOT_PWD:
@@ -61,7 +61,7 @@ async def video(c, m):
       else:
           await c.send_message(chat_id=m.chat.id, text=Translation.REPLY_TEXT)
 
-@Client.on_message(Filters.command(["converttofile"]))
+@Client.on_message(Filters.command(["convtofile"]))
 async def file(c, m):
 
   if Config.BOT_PWD:
