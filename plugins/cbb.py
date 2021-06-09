@@ -22,7 +22,7 @@ aboutbutton = [[
 @Client.on_callback_query()
 async def cb_handler(bot, update):
 
-    if update.data == "help":
+      elif update.data == "help":
         await update.answer()
         keyboard = InlineKeyboardMarkup(helpbutton)
         await update.message.edit_text(
