@@ -9,7 +9,14 @@ from pyrogram import Client, Filters, InlineKeyboardButton, InlineKeyboardMarkup
 from translation import Translation
 from Tools.Download import download
 
-
+START_BUTTONS = InlineKeyboardMarkup(
+        [[
+        InlineKeyboardButton(text="⚙️ Help", callback_data="help"),
+        InlineKeyboardButton(text="🤖 About", callback_data="about"),
+        ],[
+        InlineKeyboardButton(text="Close 🔐", callback_data="close")
+        ]]
+    )
 
 my_father = "https://t.me/{}".format(Config.USER_NAME[1:])
 support = "https://telegram.dog/Ns_Bot_supporters"
