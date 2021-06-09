@@ -33,7 +33,7 @@ ATART_BUTTONS = InlineKeyboardMarkup(
     )
 
 @Client.on_message(filters.command(["start"]))
-async def start(c, m):
+async def start(bot, update):
 
     await c.send_message(chat_id=m.chat.id,
                          text=Translation.START.format(m.from_user.first_name, Config.USER_NAME),
@@ -44,7 +44,7 @@ async def start(c, m):
 
 
 @Client.on_message(filters.command(["help"]))
-async def help(c, m):
+async def help(bot, update):
 
     await c.send_message(chat_id=m.chat.id,
                          text=Translation.HELP,
@@ -54,7 +54,7 @@ async def help(c, m):
 
 
 @Client.on_message(filters.command(["about"]))
-async def about(c, m):
+async def about(bot, update):
 
     await c.send_message(chat_id=m.chat.id,
                          text=Translation.ABOUT,
@@ -64,7 +64,7 @@ async def about(c, m):
                          parse_mode="markdown")
 
 @Client.on_message(filters.command(["convtovideo"]))
-async def video(c, m):
+async def video(bot, update):
 
   if Config.BOT_PWD:
       if (m.from_user.id not in Config.LOGGED_USER) & (m.from_user.id not in Config.AUTH_USERS):
@@ -82,7 +82,7 @@ async def video(c, m):
           await c.send_message(chat_id=m.chat.id, text=Translation.REPLY_TEXT)
 
 @Client.on_message(filters.command(["convtofile"]))
-async def file(c, m):
+async def file(bot, update):
 
   if Config.BOT_PWD:
       if (m.from_user.id not in Config.LOGGED_USER) & (m.from_user.id not in Config.AUTH_USERS):
@@ -99,7 +99,7 @@ async def file(c, m):
        await c.send_message(chat_id=m.chat.id, text=Translation.REPLY_TEXT)
 
 @Client.on_message(filters.command(["login"]))
-async def login(c, m):
+async def login(bot, update):
     if Config.BOT_PWD:
         if (len(m.command) >= 2) & (m.from_user.id not in Config.LOGGED_USER) & (m.from_user.id not in Config.AUTH_USERS):
             _, password = m.text.split(" ", 1)
