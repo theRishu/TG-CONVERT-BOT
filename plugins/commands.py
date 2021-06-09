@@ -5,7 +5,8 @@ logger = logging.getLogger(__name__)
 
 import pyrogram
 from config import Config 
-from pyrogram import Client, Filters, InlineKeyboardButton, InlineKeyboardMarkup
+from pyrogram import Client, filters
+from pyrogram.types InlineKeyboardButton, InlineKeyboardMarkup
 from translation import Translation
 from Tools.Download import download
 
@@ -31,7 +32,7 @@ ATART_BUTTONS = InlineKeyboardMarkup(
         ]]
     )
 
-@Client.on_message(Filters.command(["start"]))
+@Client.on_message(filters.command(["start"]))
 async def start(c, m):
 
     await c.send_message(chat_id=m.chat.id,
@@ -42,7 +43,7 @@ async def start(c, m):
 
 
 
-@Client.on_message(Filters.command(["help"]))
+@Client.on_message(filters.command(["help"]))
 async def help(c, m):
 
     await c.send_message(chat_id=m.chat.id,
@@ -52,7 +53,7 @@ async def help(c, m):
                          parse_mode="markdown")
 
 
-@Client.on_message(Filters.command(["about"]))
+@Client.on_message(filters.command(["about"]))
 async def about(c, m):
 
     await c.send_message(chat_id=m.chat.id,
@@ -62,7 +63,7 @@ async def about(c, m):
                          replay_markup=ATART_BUTTONS,
                          parse_mode="markdown")
 
-@Client.on_message(Filters.command(["convtovideo"]))
+@Client.on_message(filters.command(["convtovideo"]))
 async def video(c, m):
 
   if Config.BOT_PWD:
@@ -80,7 +81,7 @@ async def video(c, m):
       else:
           await c.send_message(chat_id=m.chat.id, text=Translation.REPLY_TEXT)
 
-@Client.on_message(Filters.command(["convtofile"]))
+@Client.on_message(filters.command(["convtofile"]))
 async def file(c, m):
 
   if Config.BOT_PWD:
@@ -97,7 +98,7 @@ async def file(c, m):
     else:
        await c.send_message(chat_id=m.chat.id, text=Translation.REPLY_TEXT)
 
-@Client.on_message(Filters.command(["login"]))
+@Client.on_message(filters.command(["login"]))
 async def login(c, m):
     if Config.BOT_PWD:
         if (len(m.command) >= 2) & (m.from_user.id not in Config.LOGGED_USER) & (m.from_user.id not in Config.AUTH_USERS):
