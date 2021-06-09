@@ -13,7 +13,7 @@ This repo is the clone of [Convert bot](https://telegram.dog/convert_Ns_bot) the
 <u> Note: </u> If you find any bug report in [Ns Bot Support](https://telegram.dog/ns_bot_supporters)
 
 
-## How to create your own bot
+### How to create your own bot
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Ns-AnoNymouS/tg-convert-bot/tree/beta)
 - 👆 Press the deploy button.
 
