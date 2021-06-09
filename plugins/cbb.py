@@ -1,6 +1,6 @@
 import pyrogram
 
-from pyrogram import Client as pyrogram, filters
+from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ForceReply
 from pyrogram.errors import UserNotParticipant
 
@@ -19,7 +19,7 @@ aboutbutton = [[
     ]]
 
 
-@pyrogram.on_callback_query()
+@Client.on_callback_query()
 async def cb_handler(bot, update):
 
     if update.data == "help":
