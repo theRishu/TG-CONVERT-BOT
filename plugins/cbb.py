@@ -1,7 +1,5 @@
 import pyrogram
 
-from plugins.help_text import rename_cb, cancel_extract
-from plugins.rename_file import force_name
 from pyrogram import Client as pyrogram, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ForceReply
 from pyrogram.errors import UserNotParticipant
@@ -46,8 +44,3 @@ async def cb_handler(bot, update):
 
     elif update.data == "close":
         await update.message.delete()
-
-        
-    elif "cancel_e" in update.data:
-        await update.message.delete()
-        await cancel_extract(bot, update.message)
