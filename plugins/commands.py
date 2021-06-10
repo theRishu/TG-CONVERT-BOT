@@ -47,7 +47,7 @@ async def help(bot, update):
     await c.send_message(chat_id=m.chat.id,
                          text=Translation.HELP,
                          reply_to_message_id=m.message_id,
-                         replay_markup=HTART_BUTTONS,
+                         reply_markup=HTART_BUTTONS,
                          parse_mode="markdown")
 
 
@@ -57,7 +57,7 @@ async def about(bot, update):
                          text=Translation.ABOUT,
                          disable_web_page_preview=True,
                          reply_to_message_id=m.message_id,
-                         replay_markup=ATART_BUTTONS,
+                         reply_markup=ATART_BUTTONS,
                          parse_mode="markdown")
 
 @Client.on_message(filters.private & filters.command(["convtovideo"]))
