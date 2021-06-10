@@ -37,7 +37,7 @@ async def start(bot, update):
     await c.send_message(chat_id=m.chat.id,
                          text=Translation.START.format(m.from_user.first_name, Config.USER_NAME),
                          reply_to_message_id=m.message_id,
-                         reply_markup=START_BUTTONS,
+                         reply_markup=START_BUTTONS)
     logger.info(f"{m.from_user.first_name} used start command")
 
 
