@@ -33,7 +33,7 @@ ATART_BUTTONS = InlineKeyboardMarkup(
     )
 
 @Client.on_message(filters.private & filters.command(["start"]))
-async def start(bot, update):
+async def start(c, m):
     await c.send_message(chat_id=m.chat.id,
                          text=Translation.START.format(m.from_user.first_name, Config.USER_NAME),
                          reply_to_message_id=m.message_id,
@@ -43,7 +43,7 @@ async def start(bot, update):
 
 
 @Client.on_message(filters.private & filters.command(["help"]))
-async def help(bot, update):
+async def help(c, m):
     await c.send_message(chat_id=m.chat.id,
                          text=Translation.HELP,
                          reply_to_message_id=m.message_id,
@@ -52,7 +52,7 @@ async def help(bot, update):
 
 
 @Client.on_message(filters.private & filters.command(["about"]))
-async def about(bot, update):
+async def about(c, m):
     await c.send_message(chat_id=m.chat.id,
                          text=Translation.ABOUT,
                          disable_web_page_preview=True,
@@ -61,7 +61,7 @@ async def about(bot, update):
                          parse_mode="markdown")
 
 @Client.on_message(filters.private & filters.command(["convtovideo"]))
-async def video(bot, update):
+async def video,(c, m):
     if Config.BOT_PWD:
       if (m.from_user.id not in Config.LOGGED_USER) & (m.from_user.id not in Config.AUTH_USERS):
           await m.reply_text(text=Translation.NOT_LOGGED_TEXT, quote=True)
@@ -78,7 +78,7 @@ async def video(bot, update):
           await c.send_message(chat_id=m.chat.id, text=Translation.REPLY_TEXT)
 
 @Client.on_message(filters.private & filters.command(["convtofile"]))
-async def file(bot, update):
+async def file(c, m):
     if Config.BOT_PWD:
       if (m.from_user.id not in Config.LOGGED_USER) & (m.from_user.id not in Config.AUTH_USERS):
           await m.reply_text(text=Translation.NOT_LOGGED_TEXT, quote=True)
@@ -94,7 +94,7 @@ async def file(bot, update):
        await c.send_message(chat_id=m.chat.id, text=Translation.REPLY_TEXT)
 
 @Client.on_message(filters.private & filters.command(["login"]))
-async def login(bot, update):
+async def login(c, m):
     if Config.BOT_PWD:
         if (len(m.command) >= 2) & (m.from_user.id not in Config.LOGGED_USER) & (m.from_user.id not in Config.AUTH_USERS):
             _, password = m.text.split(" ", 1)
